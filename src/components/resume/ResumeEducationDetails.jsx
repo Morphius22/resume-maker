@@ -2,21 +2,22 @@ import ResumeLeftColumn from "./ResumeLeftColumn";
 import ResumeSchoolDetails from "./ResumeSchoolDetails";
 import ResumeSectionHeader from "./ResumeSectionHeader";
 
-function ResumeEducationDetails() {
+function ResumeEducationDetails({ educationExperiences }) {
   return (
     <div className="resumeSection">
       <ResumeSectionHeader headerName="Education" />
-
-      <div className="resumeSectionDetails">
-        <ResumeLeftColumn
-          date="08/2020 – present"
-          location="New York City, US"
-        />
-        <ResumeSchoolDetails
-          schoolName="London City University"
-          degree="Bachelors in Economics"
-        />
-      </div>
+      {educationExperiences.map((education, index) => (
+        <div className="resumeSectionDetails" key={index}>
+          <ResumeLeftColumn
+            date={education.date}
+            location={education.location}
+          />
+          <ResumeSchoolDetails
+            schoolName={education.schoolName}
+            degree={education.degree}
+          />
+        </div>
+      ))}
     </div>
   );
 }
