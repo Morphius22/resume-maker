@@ -1,6 +1,3 @@
-import { useState } from "react";
-import "../styles/app.css";
-
 function ResumePersonalDetails() {
   return (
     <div className="resumeHeader">

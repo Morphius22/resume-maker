@@ -1,6 +1,3 @@
-import "../styles/app.css";
-import { useState } from "react";
-
 export default function Accordian({ icon, label, onClick }) {
   return (
     <div className="accordian" onClick={onClick}>

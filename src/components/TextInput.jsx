@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/app.css";
 
 export default function TextInput({ name, id, label }) {

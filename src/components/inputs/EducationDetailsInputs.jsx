@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ButtonGroup from "./ButtonGroup";
-import TextInput from "./TextInput";
-import Accordian from "./Accordian";
-import "../styles/app.css";
+import TextInput from "../TextInput";
+import Accordian from "../Accordian";
 
 function EducationDetailsInputs() {
   const [isOpen, setIsOpen] = useState(false);

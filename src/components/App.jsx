@@ -1,10 +1,10 @@
 import { useState } from "react";
-import PersonalDetailsInputs from "./PersonalDetailsInputs";
-import EducationDetailsInputs from "./EducationDetailsInputs";
-import WorkDetailsInputs from "./WorkDetailsInputs";
-import ResumePersonalDetails from "./ResumePersonalDetails";
-import ResumeEducationDetails from "./ResumeEducationDetails";
-import ResumeProfessionDetails from "./ResumeProfessionDetails";
+import PersonalDetailsInputs from "./inputs/PersonalDetailsInputs";
+import EducationDetailsInputs from "./inputs/EducationDetailsInputs";
+import WorkDetailsInputs from "./inputs/WorkDetailsInputs";
+import ResumePersonalDetails from "./resume/ResumePersonalDetails";
+import ResumeEducationDetails from "./resume/ResumeEducationDetails";
+import ResumeProfessionDetails from "./resume/ResumeProfessionDetails";
 
 function App() {
   const [count, setCount] = useState(0);
