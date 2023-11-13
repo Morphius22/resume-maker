@@ -1,0 +1,129 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "daisyui/dist/full.css";
+
+#root {
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw; /* 100% of viewport width */
+  height: 100vh; /* 100% of viewport height */
+  margin-left: 20px;
+}
+
+.sectionheader {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.editor {
+  flex: 4;
+}
+
+.resume {
+  flex: 6; /* This will make both child divs take equal space */
+  color: black;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 2px 2px 2px rgb(47, 47, 47);
+}
+
+.accordian {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.saveButton {
+  margin-left: 15px;
+}
+
+.resume {
+  background-color: whitesmoke;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgb(47, 47, 47);
+  height: 100%;
+  width: 100%;
+}
+
+.resumePersonDetailsSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resumePersonDetail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  padding-right: 6px;
+}
+
+.resumeHeader {
+  background-color: rgb(32, 0, 62);
+  padding: 20px;
+  color: white;
+  font-weight: 600;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.resumeName {
+  text-align: center;
+}
+
+.resumeSection {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.resumeSectionDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  margin-top: 10px;
+}
+
+.resumeSectionRightColumn {
+  flex: 5;
+}
+
+.resumeSectionLeftColumn {
+  flex: 5;
+}
+
+.resumeSectionHeader {
+  background-color: rgb(140, 119, 160);
+  padding: 20px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
