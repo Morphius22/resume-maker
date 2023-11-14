@@ -1,6 +1,6 @@
 import "../styles/app.css";
 
-export default function TextInput({ name, id, label }) {
+export default function TextInput({ name, id, label, onChange }) {
   return (
     <>
       <div className="field my-8">
@@ -12,6 +12,7 @@ export default function TextInput({ name, id, label }) {
           id={id}
           name={name}
           className="input input-bordered w-full max-w-xs"
+          onChange={(e) => onChange(e, name)}
         />
       </div>
     </>

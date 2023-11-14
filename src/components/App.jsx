@@ -9,36 +9,87 @@ import ResumeProfessionDetails from "./resume/ResumeProfessionDetails";
 function App() {
   const [jobExperiences, setJobExperiences] = useState([
     {
-      location: "New York City, US",
-      date: "08/2020 – present",
-      company: "Black Mesa Labs",
-      jobTitle: "UI & UX Designer",
-      jobDescription:
+      workLocation: "New York City, US",
+      workStartDate: "08/2020",
+      workEndDate: "present",
+      companyName: "Black Mesa Labs",
+      position: "UI & UX Designer",
+      workDescription:
         "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
     },
     {
-      location: "New York City, US",
-      date: "08/2020 – present",
-      company: "Rolly Polly",
-      jobTitle: "Front End Engineer",
-      jobDescription:
+      workLocation: "New York City, US",
+      workStartDate: "08/2020",
+      workEndDate: "present",
+      companyName: "Rolly Polly",
+      position: "Front End Engineer",
+      workDescription:
         "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
+    },
+    {
+      workLocation: "",
+      workStartDate: "",
+      workEndDate: "",
+      companyName: "",
+      position: "",
+      workDescription: "",
     },
   ]);
   const [educationExperiences, setEducationExperiences] = useState([
     {
-      location: "New York City, US",
-      date: "08/2020 – present",
+      schoolLocation: "New York City, US",
+      schoolStartDate: "08/2020",
+      schoolEndDate: "present",
       schoolName: "London City University",
       degree: "Bachelors in Economics",
     },
     {
-      location: "New York City, US",
-      date: "08/2020 – present",
+      schoolLocation: "New York City, US",
+      schoolStartDate: "08/2020",
+      schoolEndDate: "present",
       schoolName: "San Diego State University",
       degree: "Mechanical Engineering",
     },
+    {
+      schoolLocation: "",
+      schoolStartDate: "",
+      schoolEndDate: "",
+      schoolName: "",
+      degree: "",
+    },
   ]);
+
+  const saveWorkExperience = ({ jobExperiences, setJobExperiences }) => {
+    const newJobExperiences = [...jobExperiences];
+    newJobExperiences.push({
+      jobTitle: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      jobDescription: "",
+    });
+    setJobExperiences(newJobExperiences);
+  };
+
+  const saveEducationExperience = (
+    educationExperiences,
+    setEducationExperiences
+  ) => {
+    const newEducationExperiences = [...educationExperiences];
+    newEducationExperiences.push({
+      schoolName: "",
+      degree: "",
+      schoolStartDate: "",
+      schoolEndDate: "",
+      schoolLocation: "",
+    });
+    setEducationExperiences(newEducationExperiences);
+  };
+
+  const clearEducationForm = () => {};
+
+  const clearWorkForm = () => {};
 
   return (
     <div className="container">
@@ -47,10 +98,12 @@ function App() {
         <EducationDetailsInputs
           educationExperiences={educationExperiences}
           setEducationExperiences={setEducationExperiences}
+          saveEducationExperience={saveEducationExperience}
         />
         <WorkDetailsInputs
           jobExperiences={jobExperiences}
           setJobExperiences={setJobExperiences}
+          saveWorkExperience={saveWorkExperience}
         />
       </div>
       <div className="resume">

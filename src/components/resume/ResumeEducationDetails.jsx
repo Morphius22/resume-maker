@@ -9,8 +9,9 @@ function ResumeEducationDetails({ educationExperiences }) {
       {educationExperiences.map((education, index) => (
         <div className="resumeSectionDetails" key={index}>
           <ResumeLeftColumn
-            date={education.date}
-            location={education.location}
+            startDate={education.schoolStartDate}
+            endDate={education.schoolEndDate}
+            location={education.schoolLocation}
           />
           <ResumeSchoolDetails
             schoolName={education.schoolName}

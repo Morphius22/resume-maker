@@ -10,11 +10,15 @@ function ResumeProfessionDetails({ jobExperiences }) {
 
         {jobExperiences.map((job, index) => (
           <div className="resumeSectionDetails" key={index}>
-            <ResumeLeftColumn date={job.date} location={job.location} />
+            <ResumeLeftColumn
+              startDate={job.workStartDate}
+              endDate={job.workEndDate}
+              location={job.workLocation}
+            />
             <ResumeWorkDetails
-              company={job.company}
-              jobTitle={job.jobTitle}
-              jobDescription={job.jobDescription}
+              company={job.companyName}
+              jobTitle={job.position}
+              jobDescription={job.workDescription}
             />
           </div>
         ))}
