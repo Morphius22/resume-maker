@@ -1,18 +1,20 @@
+import { PhoneIcon, EmailIcon, AddressIcon } from "../Icons";
+
 function ResumePersonalDetails() {
   return (
     <div className="resumeHeader">
       <h3 className="resumeName">full name</h3>
       <div className="resumePersonDetailsSection">
         <div className="resumePersonDetail">
-          <p className="icon">icon</p>
+          <EmailIcon />
           <p>email</p>
         </div>
         <div className="resumePersonDetail">
-          <p className="icon">icon</p>
+          <PhoneIcon />
           <p>phone</p>
         </div>
         <div className="resumePersonDetail">
-          <p className="icon">icon</p>
+          <AddressIcon />
           <p>address</p>
         </div>
       </div>

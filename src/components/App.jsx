@@ -35,6 +35,33 @@ function App() {
       workDescription: "",
     },
   ]);
+
+  const saveWorkExperience = (jobExperiences, setJobExperiences) => {
+    const newJobExperiences = [...jobExperiences];
+    newJobExperiences.push({
+      position: "",
+      companyName: "",
+      workStartDate: "",
+      workEndDate: "",
+      workLocation: "",
+      workDescription: "",
+    });
+    setJobExperiences(newJobExperiences);
+  };
+
+  const clearWorkForm = (jobExperiences, setJobExperiences) => {
+    const latestJobExperience = [...jobExperiences];
+    latestJobExperience[latestJobExperience.length - 1] = {
+      position: "",
+      companyName: "",
+      workStartDate: "",
+      workEndDate: "",
+      workLocation: "",
+      workDescription: "",
+    };
+    setJobExperiences(latestJobExperience);
+  };
+
   const [educationExperiences, setEducationExperiences] = useState([
     {
       schoolLocation: "New York City, US",
@@ -58,19 +85,6 @@ function App() {
       degree: "",
     },
   ]);
-
-  const saveWorkExperience = (jobExperiences, setJobExperiences) => {
-    const newJobExperiences = [...jobExperiences];
-    newJobExperiences.push({
-      jobTitle: "",
-      company: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      jobDescription: "",
-    });
-    setJobExperiences(newJobExperiences);
-  };
 
   const saveEducationExperience = (
     educationExperiences,
@@ -102,18 +116,13 @@ function App() {
     setEducationExperiences(latestEducationExperience);
   };
 
-  const clearWorkForm = (jobExperiences, setJobExperiences) => {
-    const latestJobExperience = [...jobExperiences];
-    latestJobExperience[latestJobExperience.length - 1] = {
-      jobTitle: "",
-      company: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      jobDescription: "",
-    };
-    setJobExperiences(latestJobExperience);
-  };
+  // const clearEntireForm = (
+  //   jobExperiences,
+  //   setJobExperiences,
+  //   educationExperiences,
+  //   setEducationExperiences
+  // ) => {
+  // };
 
   return (
     <div className="container">
