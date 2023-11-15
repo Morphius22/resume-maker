@@ -59,7 +59,7 @@ function App() {
     },
   ]);
 
-  const saveWorkExperience = ({ jobExperiences, setJobExperiences }) => {
+  const saveWorkExperience = (jobExperiences, setJobExperiences) => {
     const newJobExperiences = [...jobExperiences];
     newJobExperiences.push({
       jobTitle: "",
@@ -87,8 +87,6 @@ function App() {
     setEducationExperiences(newEducationExperiences);
   };
 
-  const clearEntireForm = () => {};
-
   const clearEducationForm = (
     educationExperiences,
     setEducationExperiences
@@ -104,7 +102,18 @@ function App() {
     setEducationExperiences(latestEducationExperience);
   };
 
-  const clearWorkForm = () => {};
+  const clearWorkForm = (jobExperiences, setJobExperiences) => {
+    const latestJobExperience = [...jobExperiences];
+    latestJobExperience[latestJobExperience.length - 1] = {
+      jobTitle: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      jobDescription: "",
+    };
+    setJobExperiences(latestJobExperience);
+  };
 
   return (
     <div className="container">
@@ -120,6 +129,7 @@ function App() {
           jobExperiences={jobExperiences}
           setJobExperiences={setJobExperiences}
           saveWorkExperience={saveWorkExperience}
+          clearWorkForm={clearWorkForm}
         />
       </div>
       <div className="resume">

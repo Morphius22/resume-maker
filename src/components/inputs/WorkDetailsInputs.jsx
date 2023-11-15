@@ -3,7 +3,12 @@ import ButtonGroup from "./ButtonGroup";
 import Accordian from "../Accordian";
 import TextInput from "../TextInput";
 
-function WorkDetailsInputs({ jobExperiences, setJobExperiences }) {
+function WorkDetailsInputs({
+  jobExperiences,
+  setJobExperiences,
+  saveWorkExperience,
+  clearWorkForm,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleInputChange = (e, field) => {
@@ -28,38 +33,49 @@ function WorkDetailsInputs({ jobExperiences, setJobExperiences }) {
             id="companyName"
             label="Company Name"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].companyName}
           />
           <TextInput
             name="position"
             id="position"
             label="Position"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].position}
           />
           <TextInput
             name="workStartDate"
             id="workStartDate"
             label="Start Date"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].workStartDate}
           />
           <TextInput
             name="workEndDate"
             id="workEndDate"
             label="End Date"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].workEndDate}
           />
           <TextInput
             name="workLocation"
             id="workLocation"
             label="Location"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].workLocation}
           />
           <TextInput
             name="workDescription"
             id="workDescription"
             label="Description (Optional)"
             onChange={handleInputChange}
+            value={jobExperiences[jobExperiences.length - 1].workDescription}
           />
-          <ButtonGroup />
+          <ButtonGroup
+            saveButtonHandler={saveWorkExperience}
+            clearButtonHandler={clearWorkForm}
+            arrayToSaveTo={jobExperiences}
+            setterFuction={setJobExperiences}
+          />
         </>
       )}
     </div>
