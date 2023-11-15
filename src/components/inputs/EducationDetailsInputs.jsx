@@ -7,6 +7,7 @@ function EducationDetailsInputs({
   educationExperiences,
   setEducationExperiences,
   saveEducationExperience,
+  clearEducationForm,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,35 +35,52 @@ function EducationDetailsInputs({
             id="schoolName"
             label="School Name"
             onChange={handleInputChange}
+            value={
+              educationExperiences[educationExperiences.length - 1].schoolName
+            }
           />
           <TextInput
             name="degree"
             id="degree"
             label="Degree"
             onChange={handleInputChange}
+            value={educationExperiences[educationExperiences.length - 1].degree}
           />
           <TextInput
             name="schoolStartDate"
             id="schoolStartDate"
             label="Start Date"
             onChange={handleInputChange}
+            value={
+              educationExperiences[educationExperiences.length - 1]
+                .schoolStartDate
+            }
           />
           <TextInput
             name="schoolEndDate"
             id="schoolEndDate"
             label="End Date"
             onChange={handleInputChange}
+            value={
+              educationExperiences[educationExperiences.length - 1]
+                .schoolEndDate
+            }
           />
           <TextInput
             name="schoolLocation"
             id="schoolLocation"
             label="Location"
             onChange={handleInputChange}
+            value={
+              educationExperiences[educationExperiences.length - 1]
+                .schoolLocation
+            }
           />
           <ButtonGroup
             saveButtonHandler={saveEducationExperience}
             arrayToSaveTo={educationExperiences}
             setterFuction={setEducationExperiences}
+            clearButtonHandler={clearEducationForm}
           />
         </>
       )}

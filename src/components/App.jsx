@@ -87,7 +87,22 @@ function App() {
     setEducationExperiences(newEducationExperiences);
   };
 
-  const clearEducationForm = () => {};
+  const clearEntireForm = () => {};
+
+  const clearEducationForm = (
+    educationExperiences,
+    setEducationExperiences
+  ) => {
+    const latestEducationExperience = [...educationExperiences];
+    latestEducationExperience[latestEducationExperience.length - 1] = {
+      schoolLocation: "",
+      schoolStartDate: "",
+      schoolEndDate: "",
+      schoolName: "",
+      degree: "",
+    };
+    setEducationExperiences(latestEducationExperience);
+  };
 
   const clearWorkForm = () => {};
 
@@ -99,6 +114,7 @@ function App() {
           educationExperiences={educationExperiences}
           setEducationExperiences={setEducationExperiences}
           saveEducationExperience={saveEducationExperience}
+          clearEducationForm={clearEducationForm}
         />
         <WorkDetailsInputs
           jobExperiences={jobExperiences}

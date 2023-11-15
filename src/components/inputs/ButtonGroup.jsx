@@ -8,7 +8,11 @@ export default function ButtonGroup({
 }) {
   return (
     <div className="buttonGroup">
-      <Button className="deleteButton btn-outline" buttonText="Clear" />
+      <Button
+        className="deleteButton btn-outline"
+        buttonText="Clear"
+        onClick={() => clearButtonHandler(arrayToSaveTo, setterFuction)}
+      />
       <div className="cancelSaveButtons">
         <Button
           className="saveButton btn-primary"
