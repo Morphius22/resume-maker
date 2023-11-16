@@ -7,6 +7,36 @@ import ResumeEducationDetails from "./resume/ResumeEducationDetails";
 import ResumeProfessionDetails from "./resume/ResumeProfessionDetails";
 
 function App() {
+  //personal details state management section
+  const [personalDetails, setPersonalDetails] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+  });
+
+  const savePersonalDetails = (personalDetails, setPersonalDetails) => {
+    let newPersonalDetails = { ...personalDetails };
+    newPersonalDetails = {
+      fullName: personalDetails.fullName,
+      email: personalDetails.email,
+      phoneNumber: personalDetails.phoneNumber,
+      address: personalDetails.address,
+    };
+    setPersonalDetails(newPersonalDetails);
+  };
+
+  const clearPersonalDetails = (personalDetails, setPersonalDetails) => {
+    const latestPersonalDetails = {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+    };
+    setPersonalDetails(latestPersonalDetails);
+  };
+
+  //job experience state management section
   const [jobExperiences, setJobExperiences] = useState([
     {
       workLocation: "New York City, US",
@@ -62,6 +92,7 @@ function App() {
     setJobExperiences(latestJobExperience);
   };
 
+  //education state management section
   const [educationExperiences, setEducationExperiences] = useState([
     {
       schoolLocation: "New York City, US",
@@ -127,7 +158,12 @@ function App() {
   return (
     <div className="container">
       <div className="editor">
-        <PersonalDetailsInputs />
+        <PersonalDetailsInputs
+          personalDetails={personalDetails}
+          setPersonalDetails={setPersonalDetails}
+          savePersonalDetails={savePersonalDetails}
+          clearPersonalDetails={clearPersonalDetails}
+        />
         <EducationDetailsInputs
           educationExperiences={educationExperiences}
           setEducationExperiences={setEducationExperiences}
@@ -142,7 +178,7 @@ function App() {
         />
       </div>
       <div className="resume">
-        <ResumePersonalDetails />
+        <ResumePersonalDetails personalDetails={personalDetails} />
         <ResumeEducationDetails educationExperiences={educationExperiences} />
         <ResumeProfessionDetails jobExperiences={jobExperiences} />
       </div>

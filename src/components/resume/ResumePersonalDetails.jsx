@@ -1,21 +1,21 @@
 import { PhoneIcon, EmailIcon, AddressIcon } from "../Icons";
 
-function ResumePersonalDetails() {
+function ResumePersonalDetails({ personalDetails }) {
   return (
     <div className="resumeHeader">
-      <h3 className="resumeName">full name</h3>
+      <h3 className="resumeName">{personalDetails.fullName}</h3>
       <div className="resumePersonDetailsSection">
         <div className="resumePersonDetail">
           <EmailIcon />
-          <p>email</p>
+          <p>{personalDetails.email}</p>
         </div>
         <div className="resumePersonDetail">
           <PhoneIcon />
-          <p>phone</p>
+          <p>{personalDetails.phoneNumber}</p>
         </div>
         <div className="resumePersonDetail">
           <AddressIcon />
-          <p>address</p>
+          <p>{personalDetails.address}</p>
         </div>
       </div>
     </div>
