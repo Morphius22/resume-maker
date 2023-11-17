@@ -5,8 +5,116 @@ import WorkDetailsInputs from "./inputs/WorkDetailsInputs";
 import ResumePersonalDetails from "./resume/ResumePersonalDetails";
 import ResumeEducationDetails from "./resume/ResumeEducationDetails";
 import ResumeProfessionDetails from "./resume/ResumeProfessionDetails";
+import FormControl from "./inputs/FormControl";
 
 function App() {
+  //entire app management section
+  const clearEntireResume = ({
+    setPersonalDetails,
+    setEducationExperiences,
+    setJobExperiences,
+  }) => {
+    const latestPersonalDetails = {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+    };
+    setPersonalDetails(latestPersonalDetails);
+
+    const latestEducationExperience = [
+      {
+        schoolLocation: "",
+        schoolStartDate: "",
+        schoolEndDate: "",
+        schoolName: "",
+        degree: "",
+      },
+    ];
+    setEducationExperiences(latestEducationExperience);
+
+    const latestJobExperience = [
+      {
+        position: "",
+        companyName: "",
+        workStartDate: "",
+        workEndDate: "",
+        workLocation: "",
+        workDescription: "",
+      },
+    ];
+    setJobExperiences(latestJobExperience);
+  };
+
+  const loadExampleResume = ({
+    setPersonalDetails,
+    setJobExperiences,
+    setEducationExperiences,
+  }) => {
+    const latestPersonalDetails = {
+      fullName: "Morphius Neo",
+      email: "redpill@gmail.com",
+      phoneNumber: "123-456-7890",
+      address: "123 Main St, New York, NY 10001",
+    };
+    setPersonalDetails(latestPersonalDetails);
+
+    const latestEducationExperience = [
+      {
+        schoolLocation: "New York City, US",
+        schoolStartDate: "08/2020",
+        schoolEndDate: "present",
+        schoolName: "London City University",
+        degree: "Bachelors in Economics",
+      },
+      {
+        schoolLocation: "New York City, US",
+        schoolStartDate: "08/2020",
+        schoolEndDate: "present",
+        schoolName: "San Diego State University",
+        degree: "Mechanical Engineering",
+      },
+      {
+        schoolLocation: "",
+        schoolStartDate: "",
+        schoolEndDate: "",
+        schoolName: "",
+        degree: "",
+      },
+    ];
+    setEducationExperiences(latestEducationExperience);
+
+    const latestWorkExperience = [
+      {
+        workLocation: "New York City, US",
+        workStartDate: "08/2020",
+        workEndDate: "present",
+        companyName: "Black Mesa Labs",
+        position: "UI & UX Designer",
+        workDescription:
+          "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
+      },
+      {
+        workLocation: "New York City, US",
+        workStartDate: "08/2020",
+        workEndDate: "present",
+        companyName: "Rolly Polly",
+        position: "Front End Engineer",
+        workDescription:
+          "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
+      },
+      {
+        workLocation: "",
+        workStartDate: "",
+        workEndDate: "",
+        companyName: "",
+        position: "",
+        workDescription: "",
+      },
+    ];
+
+    setJobExperiences(latestWorkExperience);
+  };
   //personal details state management section
   const [personalDetails, setPersonalDetails] = useState({
     fullName: "",
@@ -158,6 +266,13 @@ function App() {
   return (
     <div className="container">
       <div className="editor">
+        <FormControl
+          clearResumeHandler={clearEntireResume}
+          loadExampleResumeHandler={loadExampleResume}
+          setEducationExperiences={setEducationExperiences}
+          setPersonalDetails={setPersonalDetails}
+          setJobExperiences={setJobExperiences}
+        />
         <PersonalDetailsInputs
           personalDetails={personalDetails}
           setPersonalDetails={setPersonalDetails}

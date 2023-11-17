@@ -127,3 +127,13 @@
   font-weight: 600;
   text-align: center;
 }
+
+.formControl {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  background-color: rgb(41, 41, 41);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
