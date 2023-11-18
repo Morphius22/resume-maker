@@ -3,6 +3,7 @@ import {
   faPhone,
   faEnvelope,
   faAddressCard,
+  faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 
 const PhoneIcon = () => {
@@ -17,4 +18,8 @@ const AddressIcon = () => {
   return <FontAwesomeIcon icon={faAddressCard} className="icon" />;
 };
 
-export { PhoneIcon, EmailIcon, AddressIcon };
+const EditIcon = () => {
+  return <FontAwesomeIcon icon={faEdit} className="icon" />;
+};
+
+export { PhoneIcon, EmailIcon, AddressIcon, EditIcon };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import ButtonGroup from "./ButtonGroup";
 import Accordian from "../Accordian";
 import TextInput from "../TextInput";
+import EditElements from "./EditElements";
 
 function WorkDetailsInputs({
   jobExperiences,
@@ -26,6 +27,7 @@ function WorkDetailsInputs({
         label="Experience"
         onClick={() => setIsOpen(!isOpen)}
       />
+      <EditElements array={jobExperiences} field="companyName" />
       {isOpen && (
         <>
           <TextInput

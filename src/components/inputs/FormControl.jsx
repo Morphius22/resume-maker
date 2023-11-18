@@ -43,7 +43,7 @@ const FormControl = ({
             setPersonalDetails,
           })
         }
-        className="btn btn-primary"
+        className="btn btn-outline"
       />
       <Button
         buttonText="Load Example"
@@ -58,7 +58,7 @@ const FormControl = ({
       />
       <Button
         buttonText="Download Resume"
-        className="btn btn-outline"
+        className="btn btn-primary"
         onClick={downloadResumeAsPDF}
       />
     </div>

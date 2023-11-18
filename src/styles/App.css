@@ -45,6 +45,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
 }
 
 .buttonGroup {
@@ -136,4 +138,15 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   padding: 20px;
+}
+
+.editElement {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.icon {
+  padding-left: 10px;
+  padding-right: 10px;
 }

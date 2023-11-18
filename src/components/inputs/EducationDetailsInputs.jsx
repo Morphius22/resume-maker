@@ -2,6 +2,7 @@ import { useState } from "react";
 import ButtonGroup from "./ButtonGroup";
 import TextInput from "../TextInput";
 import Accordian from "../Accordian";
+import EditElements from "./EditElements";
 
 function EducationDetailsInputs({
   educationExperiences,
@@ -28,6 +29,7 @@ function EducationDetailsInputs({
         icon="📚"
         onClick={() => setIsOpen(!isOpen)}
       />
+      <EditElements array={educationExperiences} field="schoolName" />
       {isOpen && (
         <>
           <TextInput
