@@ -27,7 +27,8 @@ function WorkDetailsInputs({
         label="Experience"
         onClick={() => setIsOpen(!isOpen)}
       />
-      <EditElements array={jobExperiences} field="companyName" />
+
+      {!isOpen && <EditElements array={jobExperiences} field="companyName" />}
       {isOpen && (
         <>
           <TextInput

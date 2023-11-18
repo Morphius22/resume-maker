@@ -8,20 +8,23 @@ function ResumeProfessionDetails({ jobExperiences }) {
       <div className="resumeSection">
         <ResumeSectionHeader headerName="Professional Experience" />
 
-        {jobExperiences.map((job, index) => (
-          <div className="resumeSectionDetails" key={index}>
-            <ResumeLeftColumn
-              startDate={job.workStartDate}
-              endDate={job.workEndDate}
-              location={job.workLocation}
-            />
-            <ResumeWorkDetails
-              company={job.companyName}
-              jobTitle={job.position}
-              jobDescription={job.workDescription}
-            />
-          </div>
-        ))}
+        {jobExperiences.map(
+          (job, index) =>
+            job.companyName !== "" && (
+              <div className="resumeSectionDetails" key={index}>
+                <ResumeLeftColumn
+                  startDate={job.workStartDate}
+                  endDate={job.workEndDate}
+                  location={job.workLocation}
+                />
+                <ResumeWorkDetails
+                  company={job.companyName}
+                  jobTitle={job.position}
+                  jobDescription={job.workDescription}
+                />
+              </div>
+            )
+        )}
       </div>
     </>
   );

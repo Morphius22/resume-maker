@@ -29,7 +29,10 @@ function EducationDetailsInputs({
         icon="📚"
         onClick={() => setIsOpen(!isOpen)}
       />
-      <EditElements array={educationExperiences} field="schoolName" />
+
+      {!isOpen && (
+        <EditElements array={educationExperiences} field="schoolName" />
+      )}
       {isOpen && (
         <>
           <TextInput
