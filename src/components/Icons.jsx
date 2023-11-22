@@ -18,8 +18,8 @@ const AddressIcon = () => {
   return <FontAwesomeIcon icon={faAddressCard} className="icon" />;
 };
 
-const EditIcon = () => {
-  return <FontAwesomeIcon icon={faEdit} className="icon" />;
+const EditIcon = ({ onClick }) => {
+  return <FontAwesomeIcon icon={faEdit} className="icon" onClick={onClick} />;
 };
 
 export { PhoneIcon, EmailIcon, AddressIcon, EditIcon };

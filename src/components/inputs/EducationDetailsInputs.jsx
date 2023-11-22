@@ -11,6 +11,10 @@ function EducationDetailsInputs({
   clearEducationForm,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedEducationIndex, setSelectedEducationIndex] = useState(2);
+  const [editedEducationItem, setEditedEducationItem] = useState(
+    educationExperiences[selectedEducationIndex]
+  );
 
   const handleInputChange = (e, field) => {
     const newEducationExperiences = [...educationExperiences];
@@ -30,9 +34,19 @@ function EducationDetailsInputs({
         onClick={() => setIsOpen(!isOpen)}
       />
 
+      {/* if isOpen is false, display each element in the resume and an edit button */}
       {!isOpen && (
-        <EditElements array={educationExperiences} field="schoolName" />
+        <EditElements
+          array={educationExperiences}
+          field="schoolName"
+          selectedIndex={selectedEducationIndex}
+          setSelectedIndex={setSelectedEducationIndex}
+          setEditedItem={setEditedEducationItem}
+          educationExperiences={educationExperiences}
+        />
       )}
+
+      {/* if isOpen is true, display form details */}
       {isOpen && (
         <>
           <TextInput
@@ -40,9 +54,7 @@ function EducationDetailsInputs({
             id="schoolName"
             label="School Name"
             onChange={handleInputChange}
-            value={
-              educationExperiences[educationExperiences.length - 1].schoolName
-            }
+            value={editedEducationItem.schoolName}
           />
           <TextInput
             name="degree"
