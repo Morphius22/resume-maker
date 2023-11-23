@@ -8,7 +8,7 @@ function WorkDetailsInputs({
   jobExperiences,
   setJobExperiences,
   // saveWorkExperience,
-  clearWorkForm,
+  // clearWorkForm,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedWorkIndex, setSelectedWorkIndex] = useState(2);
@@ -45,6 +45,21 @@ function WorkDetailsInputs({
     setEditedWorkItem(newJobExperiences[newJobExperiences.length - 1]);
     setSelectedWorkIndex(newJobExperiences.length - 1);
     setIsOpen(!isOpen);
+  };
+
+  const clearWorkForm = (jobExperiences, setJobExperiences) => {
+    const latestJobExperience = [...jobExperiences];
+    const clearedItem = {
+      position: "",
+      companyName: "",
+      workStartDate: "",
+      workEndDate: "",
+      workLocation: "",
+      workDescription: "",
+    };
+    latestJobExperience[selectedWorkIndex] = clearedItem;
+    setJobExperiences(latestJobExperience);
+    setEditedWorkItem(clearedItem);
   };
 
   return (
@@ -111,7 +126,9 @@ function WorkDetailsInputs({
           />
           <ButtonGroup
             saveButtonHandler={saveWorkExperience}
-            clearButtonHandler={clearWorkForm}
+            clearButtonHandler={() =>
+              clearWorkForm(jobExperiences, setJobExperiences)
+            }
             arrayToSaveTo={jobExperiences}
             setterFuction={setJobExperiences}
           />

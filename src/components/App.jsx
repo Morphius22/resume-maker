@@ -176,18 +176,18 @@ function App() {
     setJobExperiences(newJobExperiences);
   };
 
-  const clearWorkForm = (jobExperiences, setJobExperiences) => {
-    const latestJobExperience = [...jobExperiences];
-    latestJobExperience[latestJobExperience.length - 1] = {
-      position: "",
-      companyName: "",
-      workStartDate: "",
-      workEndDate: "",
-      workLocation: "",
-      workDescription: "",
-    };
-    setJobExperiences(latestJobExperience);
-  };
+  // const clearWorkForm = (jobExperiences, setJobExperiences) => {
+  //   const latestJobExperience = [...jobExperiences];
+  //   latestJobExperience[latestJobExperience.length - 1] = {
+  //     position: "",
+  //     companyName: "",
+  //     workStartDate: "",
+  //     workEndDate: "",
+  //     workLocation: "",
+  //     workDescription: "",
+  //   };
+  //   setJobExperiences(latestJobExperience);
+  // };
 
   //education state management section
   const [educationExperiences, setEducationExperiences] = useState([
@@ -214,21 +214,6 @@ function App() {
     },
   ]);
 
-  const clearEducationForm = (
-    educationExperiences,
-    setEducationExperiences
-  ) => {
-    const latestEducationExperience = [...educationExperiences];
-    latestEducationExperience[latestEducationExperience.length - 1] = {
-      schoolLocation: "",
-      schoolStartDate: "",
-      schoolEndDate: "",
-      schoolName: "",
-      degree: "",
-    };
-    setEducationExperiences(latestEducationExperience);
-  };
-
   return (
     <div className="container">
       <div className="editor">
@@ -247,13 +232,11 @@ function App() {
         <EducationDetailsInputs
           educationExperiences={educationExperiences}
           setEducationExperiences={setEducationExperiences}
-          clearEducationForm={clearEducationForm}
         />
         <WorkDetailsInputs
           jobExperiences={jobExperiences}
           setJobExperiences={setJobExperiences}
           saveWorkExperience={saveWorkExperience}
-          clearWorkForm={clearWorkForm}
         />
       </div>
       <div className="resume">

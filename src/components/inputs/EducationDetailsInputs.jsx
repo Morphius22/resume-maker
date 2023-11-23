@@ -7,7 +7,6 @@ import EditElements from "./EditElements";
 function EducationDetailsInputs({
   educationExperiences,
   setEducationExperiences,
-  clearEducationForm,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedEducationIndex, setSelectedEducationIndex] = useState(2);
@@ -32,6 +31,7 @@ function EducationDetailsInputs({
       newEducationExperiences[newEducationExperiences.length - 1]
     );
     setSelectedEducationIndex(newEducationExperiences.length - 1);
+    setIsOpen(!isOpen);
   };
 
   const handleInputChange = (e, field) => {
@@ -42,6 +42,23 @@ function EducationDetailsInputs({
     educationExperiencesArray[selectedEducationIndex] =
       copyOfEditedEducationItem;
     setEducationExperiences(educationExperiencesArray);
+  };
+
+  const clearEducationForm = (
+    educationExperiences,
+    setEducationExperiences
+  ) => {
+    const latestEducationExperience = [...educationExperiences];
+    const clearedItem = {
+      schoolLocation: "",
+      schoolStartDate: "",
+      schoolEndDate: "",
+      schoolName: "",
+      degree: "",
+    };
+    latestEducationExperience[selectedEducationIndex] = clearedItem;
+    setEducationExperiences(latestEducationExperience);
+    setEditedEducationItem(clearedItem);
   };
 
   return (
