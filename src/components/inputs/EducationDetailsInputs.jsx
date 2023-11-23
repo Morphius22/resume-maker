@@ -7,7 +7,6 @@ import EditElements from "./EditElements";
 function EducationDetailsInputs({
   educationExperiences,
   setEducationExperiences,
-  saveEducationExperience,
   clearEducationForm,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,14 +15,33 @@ function EducationDetailsInputs({
     educationExperiences[selectedEducationIndex]
   );
 
-  const handleInputChange = (e, field) => {
+  const saveEducationExperience = (
+    educationExperiences,
+    setEducationExperiences
+  ) => {
     const newEducationExperiences = [...educationExperiences];
-    const lastEducationExperience =
-      newEducationExperiences[newEducationExperiences.length - 1];
-    lastEducationExperience[field] = e.target.value;
-    newEducationExperiences[newEducationExperiences.length - 1] =
-      lastEducationExperience;
+    newEducationExperiences.push({
+      schoolName: "",
+      degree: "",
+      schoolStartDate: "",
+      schoolEndDate: "",
+      schoolLocation: "",
+    });
     setEducationExperiences(newEducationExperiences);
+    setEditedEducationItem(
+      newEducationExperiences[newEducationExperiences.length - 1]
+    );
+    setSelectedEducationIndex(newEducationExperiences.length - 1);
+  };
+
+  const handleInputChange = (e, field) => {
+    const copyOfEditedEducationItem = { ...editedEducationItem };
+    const educationExperiencesArray = [...educationExperiences];
+    copyOfEditedEducationItem[field] = e.target.value;
+    setEditedEducationItem(copyOfEditedEducationItem);
+    educationExperiencesArray[selectedEducationIndex] =
+      copyOfEditedEducationItem;
+    setEducationExperiences(educationExperiencesArray);
   };
 
   return (
@@ -39,10 +57,10 @@ function EducationDetailsInputs({
         <EditElements
           array={educationExperiences}
           field="schoolName"
-          selectedIndex={selectedEducationIndex}
           setSelectedIndex={setSelectedEducationIndex}
           setEditedItem={setEditedEducationItem}
-          educationExperiences={educationExperiences}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
         />
       )}
 
@@ -61,37 +79,28 @@ function EducationDetailsInputs({
             id="degree"
             label="Degree"
             onChange={handleInputChange}
-            value={educationExperiences[educationExperiences.length - 1].degree}
+            value={editedEducationItem.degree}
           />
           <TextInput
             name="schoolStartDate"
             id="schoolStartDate"
             label="Start Date"
             onChange={handleInputChange}
-            value={
-              educationExperiences[educationExperiences.length - 1]
-                .schoolStartDate
-            }
+            value={editedEducationItem.schoolStartDate}
           />
           <TextInput
             name="schoolEndDate"
             id="schoolEndDate"
             label="End Date"
             onChange={handleInputChange}
-            value={
-              educationExperiences[educationExperiences.length - 1]
-                .schoolEndDate
-            }
+            value={editedEducationItem.schoolEndDate}
           />
           <TextInput
             name="schoolLocation"
             id="schoolLocation"
             label="Location"
             onChange={handleInputChange}
-            value={
-              educationExperiences[educationExperiences.length - 1]
-                .schoolLocation
-            }
+            value={editedEducationItem.schoolLocation}
           />
           <ButtonGroup
             saveButtonHandler={saveEducationExperience}

@@ -5,6 +5,8 @@ export default function ButtonGroup({
   clearButtonHandler,
   arrayToSaveTo,
   setterFuction,
+  isOpen,
+  setIsOpen,
 }) {
   return (
     <div className="buttonGroup">
@@ -17,7 +19,9 @@ export default function ButtonGroup({
         <Button
           className="saveButton btn-primary"
           buttonText="Save"
-          onClick={() => saveButtonHandler(arrayToSaveTo, setterFuction)}
+          onClick={() =>
+            saveButtonHandler(arrayToSaveTo, setterFuction, isOpen, setIsOpen)
+          }
         />
       </div>
     </div>

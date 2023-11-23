@@ -3,10 +3,10 @@ import { EditIcon } from "../Icons";
 export default function EditElements({
   array,
   field,
-  selectedIndex,
   setSelectedIndex,
   setEditedItem,
-  educationExperiences,
+  isOpen,
+  setIsOpen,
 }) {
   return array.map((element, index) => {
     if (element[field] === "") return null;
@@ -16,8 +16,9 @@ export default function EditElements({
         <EditIcon
           onClick={() => {
             setSelectedIndex(index);
-            setEditedItem(educationExperiences[index]);
-            console.log(educationExperiences[index]);
+            setEditedItem(array[index]);
+            setIsOpen(!isOpen);
+            console.log(array[index]);
           }}
         />
       </div>

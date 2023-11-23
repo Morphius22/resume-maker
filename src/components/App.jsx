@@ -117,22 +117,11 @@ function App() {
   };
   //personal details state management section
   const [personalDetails, setPersonalDetails] = useState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    address: "",
+    fullName: "Morphius Neo",
+    email: "redpill@gmail.com",
+    phoneNumber: "123-456-7890",
+    address: "123 Main St, New York, NY 10001",
   });
-
-  const savePersonalDetails = (personalDetails, setPersonalDetails) => {
-    let newPersonalDetails = { ...personalDetails };
-    newPersonalDetails = {
-      fullName: personalDetails.fullName,
-      email: personalDetails.email,
-      phoneNumber: personalDetails.phoneNumber,
-      address: personalDetails.address,
-    };
-    setPersonalDetails(newPersonalDetails);
-  };
 
   const clearPersonalDetails = (personalDetails, setPersonalDetails) => {
     const latestPersonalDetails = {
@@ -225,21 +214,6 @@ function App() {
     },
   ]);
 
-  const saveEducationExperience = (
-    educationExperiences,
-    setEducationExperiences
-  ) => {
-    const newEducationExperiences = [...educationExperiences];
-    newEducationExperiences.push({
-      schoolName: "",
-      degree: "",
-      schoolStartDate: "",
-      schoolEndDate: "",
-      schoolLocation: "",
-    });
-    setEducationExperiences(newEducationExperiences);
-  };
-
   const clearEducationForm = (
     educationExperiences,
     setEducationExperiences
@@ -255,14 +229,6 @@ function App() {
     setEducationExperiences(latestEducationExperience);
   };
 
-  // const clearEntireForm = (
-  //   jobExperiences,
-  //   setJobExperiences,
-  //   educationExperiences,
-  //   setEducationExperiences
-  // ) => {
-  // };
-
   return (
     <div className="container">
       <div className="editor">
@@ -276,13 +242,11 @@ function App() {
         <PersonalDetailsInputs
           personalDetails={personalDetails}
           setPersonalDetails={setPersonalDetails}
-          savePersonalDetails={savePersonalDetails}
           clearPersonalDetails={clearPersonalDetails}
         />
         <EducationDetailsInputs
           educationExperiences={educationExperiences}
           setEducationExperiences={setEducationExperiences}
-          saveEducationExperience={saveEducationExperience}
           clearEducationForm={clearEducationForm}
         />
         <WorkDetailsInputs

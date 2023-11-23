@@ -6,7 +6,6 @@ import TextInput from "../TextInput";
 function PersonalDetailsInputs({
   personalDetails,
   setPersonalDetails,
-  savePersonalDetails,
   clearPersonalDetails,
 }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -15,6 +14,23 @@ function PersonalDetailsInputs({
     const newPersonalDetails = { ...personalDetails };
     newPersonalDetails[field] = e.target.value;
     setPersonalDetails(newPersonalDetails);
+  };
+
+  const savePersonalDetails = (
+    personalDetails,
+    setPersonalDetails,
+    isOpen,
+    setIsOpen
+  ) => {
+    let newPersonalDetails = { ...personalDetails };
+    newPersonalDetails = {
+      fullName: personalDetails.fullName,
+      email: personalDetails.email,
+      phoneNumber: personalDetails.phoneNumber,
+      address: personalDetails.address,
+    };
+    setPersonalDetails(newPersonalDetails);
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -55,6 +71,8 @@ function PersonalDetailsInputs({
             setterFuction={setPersonalDetails}
             saveButtonHandler={savePersonalDetails}
             clearButtonHandler={clearPersonalDetails}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
           />
         </div>
       )}
