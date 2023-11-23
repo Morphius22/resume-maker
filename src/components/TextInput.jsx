@@ -1,5 +1,3 @@
-import "../styles/app.css";
-
 export default function TextInput({ name, id, label, onChange, value }) {
   return (
     <>
